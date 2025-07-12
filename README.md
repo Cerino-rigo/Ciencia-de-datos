@@ -141,13 +141,12 @@ El sistema se compone de los siguientes módulos principales:
 
 ```mermaid
 graph LR
-    A[(Ambiente)] -->|Aroma| B[BME688 Sensor]
+    A[(Environment)] -->|Aroma| B[BME688 Sensor]
     B -->|I2C| C[XC01 ESP32]
-    C -->|Bluetooth| D[Computadora]
-    D -->|Inferencia Python| E[Cabeza Robótica]
-    C -->|Actuador Nasal| F[Sistema de Succión]
-    E -->|Interacción| G[Usuario]
-```
+    C -->|Bluetooth| D[Computer]
+    D -->|Python Inference| E[Robotic Head]
+    C -->|Nasal Actuator| F[Suction System]
+    E -->|Interaction| G[User]
 
 ### 2.2 Recopilación de Datos
 
@@ -168,10 +167,10 @@ graph LR
 
 ```mermaid
 flowchart TD
-    X[Datos crudos .csv] --> A[Filtrado de media móvil]
-    A --> B[Estandarización]
-    B --> C[Codificación de etiquetas]
-    C --> D[Datos listos para modelos]
+    X[Raw .csv data] --> A[Moving average filtering]
+    A --> B[Standardization]
+    B --> C[Label encoding]
+    C --> D[Data ready for models]
 ```
 
 ### 2.4 Extracción de Características
