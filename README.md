@@ -147,6 +147,7 @@ graph LR
     D -->|Python Inference| E[Robotic Head]
     C -->|Nasal Actuator| F[Suction System]
     E -->|Interaction| G[User]
+```
 
 ### 2.2 Recopilación de Datos
 
