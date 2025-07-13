@@ -185,6 +185,15 @@ flowchart TD
     D --> E[Entrenamiento Modelos (MLP, SVM, Árbol, Regresión Logística)]
     E --> F[Evaluación y Métricas]
 ```
+
+```mermaid
+flowchart TD
+    X[Raw .csv data] --> A[Moving average filtering]
+    A --> B[Standardization]
+    B --> C[Label encoding]
+    C --> D[Data ready for models]
+```
+
 - **PCA (Principal Component Analysis)**: Se empleó para reducir dimensionalidad y explorar la separabilidad de las clases en el espacio latente.
 - **LDA (Linear Discriminant Analysis)**: Para maximizar la separación entre las clases de aroma, facilitando la tarea de clasificación.
 - **Justificación**: PCA captura la máxima varianza explicada, mientras que LDA optimiza la relación señal-ruido entre las clases objetivo.
