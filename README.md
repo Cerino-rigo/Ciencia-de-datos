@@ -188,12 +188,51 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A[Lectura de BD_join_all.csv] --> B[Replicado de Alcohol]
-    B --> C[Preprocesamiento: Estandarización y Codificación]
-    C --> D[Partición Datos: Entrenamiento/Prueba]
-    D --> E[Entrenamiento Modelos (MLP, SVM, Árbol, Regresión Logística)]
-    E --> F[Evaluación y Métricas]
+    A[YOLO-NAS: Object detection] --> B[Estimation of position and orientation]
+    B --> C{Valid position?}
+    C -- Yes --> D[Send coordinates to YuMi via EGM]
+    D --> E[Movement of the ABB YuMi robot]
+    E --> F[Gripper activation via RWS]
+    F --> G[Sample/object manipulation]
+    C -- No --> H[Notify error/handle exception]
 ```
+```mermaid
+%% Figure 1: Detailed System Block Diagram
+graph LR
+    A[(Aroma Source)] -->|Scent Molecules| B[BME688 Sensor]
+    B -->|Sensor Data (I2C)| C[ESP32 Microcontroller]
+    C -->|Pre-Processing| D[Data Transmission Module]
+    D -->|Bluetooth/WiFi| E[Computer / Inference System]
+    E -->|Inference Result| F[Robotic Head Controller]
+    F -->|Actuation Signal| G[Robotic Actuators]
+    G -->|Physical Movement| H[User Interaction]
+    F -->|Nasal Actuator Signal| I[Suction System]
+    style H fill:#c2f0c2
+    style I fill:#e8f6ff
+```
+
+**Figure 1: Detailed System Block Diagram.**  
+This diagram illustrates the interaction between the aroma sensor, microcontroller (ESP32), data transmission, inference system, and the robotic actuators, including the suction system and user interaction.
+
+---
+
+```mermaid
+%% Figure 2: Data Pipeline Flowchart
+flowchart TD
+    X[Raw Sensor Data Acquisition] --> Y[Pre-Processing & Filtering]
+    Y --> Z[Feature Extraction]
+    Z --> A[Standardization & Label Encoding]
+    A --> B[Data Transmission (Bluetooth/WiFi)]
+    B --> C[Model Inference (Python)]
+    C --> D[Classification Result]
+    D --> E[Robotic Actuation Command]
+    E --> F[Execution by Robotic System]
+    F --> G[User Feedback or Interaction]
+```
+
+**Figure 2: Data Pipeline Flowchart.**  
+This flowchart clarifies the complete process from sensor data acquisition, pre-processing, feature extraction, and transmission, through model inference and classification, to the final robotic actuation and user interaction.
+
 
 - **PCA (Principal Component Analysis)**: Se empleó para reducir dimensionalidad y explorar la separabilidad de las clases en el espacio latente.
 - **LDA (Linear Discriminant Analysis)**: Para maximizar la separación entre las clases de aroma, facilitando la tarea de clasificación.
