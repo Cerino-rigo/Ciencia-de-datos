@@ -27,6 +27,27 @@ This illustrated guide provides step-by-step instructions to resolve the “Batt
 
 ## 2. **Locate and Check the SMB Battery**
 
+
+**Figure 1: Detailed System Block Diagram.**  
+This diagram illustrates the interaction between the aroma sensor, microcontroller (ESP32), data transmission, inference system, and the robotic actuators, including the suction system and user interaction.
+
+---
+
+```mermaid
+%% Figure 2: Data Pipeline Flowchart
+flowchart TD
+    X[Raw Sensor Data Acquisition] --> Y[Pre-Processing & Filtering]
+    Y --> Z[Feature Extraction]
+    Z --> A[Standardization & Label Encoding]
+    A --> B[Data Transmission (Bluetooth/WiFi)]
+    B --> C[Model Inference (Python)]
+    C --> D[Classification Result]
+    D --> E[Robotic Actuation Command]
+    E --> F[Execution by Robotic System]
+    F --> G[User Feedback or Interaction]
+```
+
+
 **A. Locate the Serial Measurement Board (SMB) Compartment**
 
 - The SMB is typically housed in the robot’s base or upper arm joint.
