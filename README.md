@@ -174,6 +174,9 @@ flowchart TD
     C --> D[Data ready for models]
 ```
 
+
+### 2.4 Extracción de Características
+
 ```mermaid
 flowchart TD
     A[Lectura de BD_join_all.csv] --> B[Replicado de Alcohol]
@@ -182,8 +185,6 @@ flowchart TD
     D --> E[Entrenamiento Modelos (MLP, SVM, Árbol, Regresión Logística)]
     E --> F[Evaluación y Métricas]
 ```
-### 2.4 Extracción de Características
-
 - **PCA (Principal Component Analysis)**: Se empleó para reducir dimensionalidad y explorar la separabilidad de las clases en el espacio latente.
 - **LDA (Linear Discriminant Analysis)**: Para maximizar la separación entre las clases de aroma, facilitando la tarea de clasificación.
 - **Justificación**: PCA captura la máxima varianza explicada, mientras que LDA optimiza la relación señal-ruido entre las clases objetivo.
