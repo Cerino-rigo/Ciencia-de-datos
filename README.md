@@ -196,20 +196,8 @@ flowchart TD
     F --> G[Sample/object manipulation]
     C -- No --> H[Notify error/handle exception]
 ```
-```mermaid
-%% Figure 1: Detailed System Block Diagram
-graph LR
-    A[(Aroma Source)] -->|Scent Molecules| B[BME688 Sensor]
-    B -->|Sensor Data (I2C)| C[ESP32 Microcontroller]
-    C -->|Pre-Processing| D[Data Transmission Module]
-    D -->|Bluetooth/WiFi| E[Computer / Inference System]
-    E -->|Inference Result| F[Robotic Head Controller]
-    F -->|Actuation Signal| G[Robotic Actuators]
-    G -->|Physical Movement| H[User Interaction]
-    F -->|Nasal Actuator Signal| I[Suction System]
-    style H fill:#c2f0c2
-    style I fill:#e8f6ff
-```
+
+
 
 **Figure 1: Detailed System Block Diagram.**  
 This diagram illustrates the interaction between the aroma sensor, microcontroller (ESP32), data transmission, inference system, and the robotic actuators, including the suction system and user interaction.
