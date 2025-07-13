@@ -174,6 +174,14 @@ flowchart TD
     C --> D[Data ready for models]
 ```
 
+```mermaid
+flowchart TD
+    A[Lectura de BD_join_all.csv] --> B[Replicado de Alcohol]
+    B --> C[Preprocesamiento: Estandarización y Codificación]
+    C --> D[Partición Datos: Entrenamiento/Prueba]
+    D --> E[Entrenamiento Modelos (MLP, SVM, Árbol, Regresión Logística)]
+    E --> F[Evaluación y Métricas]
+```
 ### 2.4 Extracción de Características
 
 - **PCA (Principal Component Analysis)**: Se empleó para reducir dimensionalidad y explorar la separabilidad de las clases en el espacio latente.
