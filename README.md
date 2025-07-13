@@ -28,24 +28,49 @@ This illustrated guide provides step-by-step instructions to resolve the “Batt
 ## 2. **Locate and Check the SMB Battery**
 
 
+```mermaid
+%% Figure 1: Detailed System Block Diagram (GitHub-compatible)
+graph LR
+    aroma_source([Aroma Source])
+    sensor([BME688 Sensor])
+    micro([ESP32 Microcontroller])
+    tx([Data Transmission])
+    inference([Inference System])
+    robot_ctrl([Robot Controller])
+    actuators([Actuators])
+    user([User])
+    suction([Suction System])
+
+    aroma_source --> sensor
+    sensor --> micro
+    micro --> tx
+    tx --> inference
+    inference --> robot_ctrl
+    robot_ctrl --> actuators
+    actuators --> user
+    robot_ctrl --> suction
+```
+
 **Figure 1: Detailed System Block Diagram.**  
-This diagram illustrates the interaction between the aroma sensor, microcontroller (ESP32), data transmission, inference system, and the robotic actuators, including the suction system and user interaction.
+Interaction from aroma source and sensor, through microcontroller, transmission, inference, and robotic response.
 
 ---
 
 ```mermaid
-%% Figure 2: Data Pipeline Flowchart
+%% Figure 2: Data Pipeline Flowchart (GitHub-compatible)
 flowchart TD
-    X[Raw Sensor Data Acquisition] --> Y[Pre-Processing & Filtering]
-    Y --> Z[Feature Extraction]
-    Z --> A[Standardization & Label Encoding]
-    A --> B[Data Transmission (Bluetooth/WiFi)]
-    B --> C[Model Inference (Python)]
-    C --> D[Classification Result]
-    D --> E[Robotic Actuation Command]
-    E --> F[Execution by Robotic System]
-    F --> G[User Feedback or Interaction]
+    acq([Sensor Data Acquisition]) --> pre([Preprocessing])
+    pre --> feat([Feature Extraction])
+    feat --> std([Standardization])
+    std --> tx([Transmission])
+    tx --> inf([Model Inference])
+    inf --> classif([Classification Result])
+    classif --> act([Robotic Actuation])
+    act --> feedback([User Feedback])
 ```
+
+**Figure 2: Data Pipeline Flowchart.**  
+From sensor data acquisition to preprocessing, feature extraction, transmission, inference, and robotic actuation.
 
 
 **A. Locate the Serial Measurement Board (SMB) Compartment**
