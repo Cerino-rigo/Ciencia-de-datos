@@ -188,10 +188,11 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    X[Raw .csv data] --> A[Moving average filtering]
-    A --> B[Standardization]
-    B --> C[Label encoding]
-    C --> D[Data ready for models]
+    A[Lectura de BD_join_all.csv] --> B[Replicado de Alcohol]
+    B --> C[Preprocesamiento: Estandarización y Codificación]
+    C --> D[Partición Datos: Entrenamiento/Prueba]
+    D --> E[Entrenamiento Modelos (MLP, SVM, Árbol, Regresión Logística)]
+    E --> F[Evaluación y Métricas]
 ```
 
 - **PCA (Principal Component Analysis)**: Se empleó para reducir dimensionalidad y explorar la separabilidad de las clases en el espacio latente.
